@@ -23,7 +23,7 @@ class Apple:
 class Snake:
     def __init__(self):
         self.body = [Vector(7, 10), Vector(6, 10), Vector(5, 10)]
-        self.direction = Vector(0, 0)
+        self.direction = Vector(1, 0)
         self.newBlock = False
 
         self.headUp = pygame.image.load('Images/head_up.png').convert_alpha()
@@ -130,6 +130,9 @@ class Snake:
     def reset(self):
         self.body = [Vector(7, 10), Vector(6, 10), Vector(5, 10)]
 
+    def getDirection(self):
+        return self.direction
+
 
 class Game:
     def __init__(self):
@@ -215,8 +218,12 @@ class Game:
         pygame.draw.rect(screen, (56, 74, 12), backgroundRect, 2)
 
     def end_game(self):
-        self.snake.reset()
-        self.direction = Vector(1, 0)
+        self.snake.play_ending_sound()
+        pygame.time.delay(1010)
+        pygame.quit()
+        sys.exit()
+        # self.snake.reset()
+        # self.direction = Vector(1, 0)
 
 
 def start_game():
