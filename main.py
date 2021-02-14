@@ -13,7 +13,6 @@ class Apple:
         yPos = int(self.pos.y * cellSize)
         appleRect = pygame.Rect(xPos, yPos, cellSize, cellSize)
         screen.blit(apple, appleRect)
-        # pygame.draw.rect(screen, (255, 8, 0), appleRect)
 
     def randomize(self):
         self.x = random.randint(0, cellNumber - 1)
